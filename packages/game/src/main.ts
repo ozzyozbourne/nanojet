@@ -23,7 +23,7 @@ const world = new World();
 const loop = new GameLoop(world, 60, canvas);
 await loop.init();
 
-const boundarySystem: UpdateSystem = (world: World, entity: Entity, deltaTimeInMs: number) => {
+const boundarySystem: UpdateSystem = (world: World, entity: Entity, _deltaTimeInMs: number) => {
   // TODO: Just being lazy here and shoving performance timing code in here but it should be extracted
   // to the game loop or some other performance tracking system
   const infoElement = document.getElementById("info") as HTMLPreElement;
@@ -122,13 +122,13 @@ for (let i = 0; i < numEntities; i++) {
 
   const position = new Vec2(
     getRandom(halfWidth, canvas.width - halfWidth),
-    getRandom(halfHeight, canvas.height - halfHeight)
+    getRandom(halfHeight, canvas.height - halfHeight),
   );
 
   // Random velocity
   const velocity = new Vec2(
     getRandom(-100, 100), // pixels per second
-    getRandom(-100, 100)
+    getRandom(-100, 100),
   );
 
   // Random angular velocity (radians per second)

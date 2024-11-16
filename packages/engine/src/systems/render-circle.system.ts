@@ -2,7 +2,7 @@ import { CircleComponent, TransformComponent } from "../components";
 import { RenderSystem } from "../ecs";
 import { scale } from "../utils/mat3";
 
-export const renderCircleSystem: RenderSystem = (world, entity, extrapolation, renderer) => {
+export const renderCircleSystem: RenderSystem = (world, entity, _extrapolation, renderer) => {
   const transform = world.getComponent<TransformComponent>(entity, TransformComponent.name)!;
   const circle = world.getComponent<CircleComponent>(entity, CircleComponent.name)!;
 
@@ -14,6 +14,6 @@ export const renderCircleSystem: RenderSystem = (world, entity, extrapolation, r
     CircleComponent.vertexData,
     CircleComponent.indexData,
     modelMatrix,
-    circle.color
+    circle.color,
   );
 };

@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import { defineConfig } from "vite";
+import path from "path";
 
 export default defineConfig({
   server: {
@@ -7,14 +7,18 @@ export default defineConfig({
     fs: {
       allow: [
         // Allow serving files from the project root and engine package
-        path.resolve(__dirname, '..', 'engine'),
-        path.resolve(__dirname, '..', 'game'),
+        path.resolve(__dirname, "..", "engine"),
+        path.resolve(__dirname, "..", "game"),
       ],
     },
   },
   resolve: {
     alias: {
-      'nanojet': path.resolve(__dirname, '../engine/src'),
+      nanojet: path.resolve(__dirname, "../engine/src"),
     },
+  },
+
+  build: {
+    target: ["es2022", "chrome100", "firefox91", "safari15"],
   },
 });

@@ -2,7 +2,7 @@ import { RectangleComponent, TransformComponent } from "../components";
 import { RenderSystem } from "../ecs";
 import { scale } from "../utils/mat3";
 
-export const renderRectangleSystem: RenderSystem = (world, entity, extrapolation, renderer) => {
+export const renderRectangleSystem: RenderSystem = (world, entity, _extrapolation, renderer) => {
   const transform = world.getComponent<TransformComponent>(entity, TransformComponent.name)!;
   const rectangle = world.getComponent<RectangleComponent>(entity, RectangleComponent.name)!;
 
@@ -14,6 +14,6 @@ export const renderRectangleSystem: RenderSystem = (world, entity, extrapolation
     RectangleComponent.vertexData,
     RectangleComponent.indexData,
     modelMatrix,
-    rectangle.color
+    rectangle.color,
   );
 };
